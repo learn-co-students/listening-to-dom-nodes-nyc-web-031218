@@ -37,5 +37,29 @@
         </div>
       </div>
     </div>
+  <script>
+
+    const main = document.getElementById('main')
+    main.addEventListener('click', function(event) {
+    alert('You have clicked me sir...niceeee')
+    })
+
+    const divs = document.querySelectorAll('div')
+
+function bubble(e) {
+  // stopPropagation usage
+  e.stopPropagation()
+
+  console.log(this.firstChild.nodeValue.trim() + ' Only this event clicked')
+}
+
+for (let i = 0; i < divs.length; i++) {
+  divs[i].addEventListener('click', function(event){
+    alert("yeah we gon alert you about this too... but disappointingly it still shows up # times on where you click. sweet.")
+  } ,bubble)
+}
+
+
+  </script>
   </body>
 </html>
