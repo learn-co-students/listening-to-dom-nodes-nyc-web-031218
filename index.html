@@ -44,20 +44,27 @@
     alert('You have clicked me sir...niceeee')
     })
 
+    const input = document.querySelector('input')
+    input.addEventListener('keydown', function(e) {
+      if (e.which === 68 || e.which === 71 || e.which === 32 || e.which === 88 ) {
+      // preventDefault usage - being obnoxious to really
+      //test its limit with or can it handle that? answer: yes. niceeeee. can
+      // eventually try prevent words being submitted maybe? complex? try on Friday
+      return e.preventDefault()
+      }
+    })
+
     const divs = document.querySelectorAll('div')
-
-function bubble(e) {
-  // stopPropagation usage
-  e.stopPropagation()
-
-  console.log(this.firstChild.nodeValue.trim() + ' Only this event clicked')
-}
-
-for (let i = 0; i < divs.length; i++) {
-  divs[i].addEventListener('click', function(event){
-    alert("yeah we gon alert you about this too... but disappointingly it still shows up # times on where you click. sweet.")
-  } ,bubble)
-}
+    function bubble(e) {
+    // stopPropagation usage
+    e.stopPropagation()
+    console.log(this.firstChild.nodeValue.trim() + ' Only this event clicked')
+    }
+    for (let i = 0; i < divs.length; i++) {
+      divs[i].addEventListener('click', function(event){
+      alert("yeah we gon alert you about this too... but disappointingly it still shows up # times on where you click. sweet.")
+      } ,bubble)
+    }
 
 
   </script>
